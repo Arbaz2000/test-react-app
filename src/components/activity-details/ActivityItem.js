@@ -7,6 +7,7 @@ import {
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./ActivityItem.css";
 import { useState } from "react";
 
@@ -43,6 +44,7 @@ const ActivityItem = ({ activity, onArchive, isArchiveView }) => {
     setIsSpinning(true);
     const newArchiveState = isArchiveView ? false : true;
     onArchive(activity.id, newArchiveState);
+    toast.success(newArchiveState ? 'Call archived successfully' : 'Call unarchived successfully');
   };
 
   const handleActivityClick = () => {

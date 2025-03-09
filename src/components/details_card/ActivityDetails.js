@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { FiPhoneIncoming, FiPhoneOutgoing, FiPhoneMissed, FiPhoneCall, FiArrowLeft, FiArchive, FiClock, FiCalendar } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
 
 const ActivityDetails = () => {
@@ -36,8 +37,10 @@ const ActivityDetails = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ is_archived: !activity.is_archived }),
       });
+      toast.success(!activity.is_archived ? 'Call archived successfully' : 'Call unarchived successfully');
       navigate(-1);
     } catch (error) {
+      toast.error('Failed to update call status');
       console.error("Error archiving/unarchiving:", error);
     }
   };

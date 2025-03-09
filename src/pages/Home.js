@@ -1,4 +1,5 @@
 import ActivityFeed from "../components/active/ActivityFeed";
+import { toast } from "react-toastify";
 import "./Home.css";
 
 const Home = () => {
@@ -17,8 +18,14 @@ const Home = () => {
       );
       
       await Promise.all(promises);
+      toast.success('All calls archived successfully', {
+        autoClose: 5000
+      });
       window.location.reload();
     } catch (error) {
+      toast.error('Failed to archive all calls', {
+        autoClose: 5000
+      });
       console.error('Error archiving all calls:', error);
     }
   };

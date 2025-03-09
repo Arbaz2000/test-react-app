@@ -1,4 +1,5 @@
 import ArchiveTab from "../components/archived/ArchiveTab";
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import "./Archive.css";
 
@@ -29,8 +30,14 @@ const Archive = () => {
         }),
       );
       await Promise.all(promises);
+      toast.success('All calls unarchived successfully', {
+        autoClose: 5000
+      });
       window.location.reload();
     } catch (error) {
+      toast.error('Failed to unarchive all calls', {
+        autoClose: 5000
+      });
       console.error("Error unarchiving all:", error);
     }
   };
