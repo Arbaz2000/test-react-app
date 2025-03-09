@@ -1,0 +1,91 @@
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.call-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.call-type-icon {
+  font-size: 1.8rem;
+}
+
+.call-type-icon.incoming {
+  color: #4CAF50;
+}
+
+.call-type-icon.outgoing {
+  color: #2196F3;
+}
+
+.call-type-icon.missed {
+  color: #F44336;
+}
+
+.call-participants {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.from, .to {
+  padding: 0.3rem 0.6rem;
+}
+
+.arrow {
+  color: #666;
+}
+
+.call-details {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.8rem;
+}
+
+.duration, .timestamp {
+  padding: 0.3rem 0.6rem;
+}
+
+.archive-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.archive-button:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.no-activities {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+} 
