@@ -1,7 +1,7 @@
-import useFetchActivities from "../hooks/useFetchActivities";
-import useUpdateActivity from "../hooks/useUpdateActivity";
-import ActivityItem from "./ActivityItem";
-import LoadingSpinner from "./LoadingSpinner";
+import useFetchActivities from "../../hooks/useFetchActivities";
+import useUpdateActivity from "../../hooks/useUpdateActivity";
+import ActivityItem from "../activity-details/ActivityItem";
+import LoadingSpinner from "../ui/loader/LoadingSpinner";
 
 const ArchiveTab = () => {
   const { activities, setActivities, loading } = useFetchActivities();

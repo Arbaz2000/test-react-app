@@ -1,4 +1,4 @@
-import ActivityFeed from "../components/ActivityFeed";
+import ActivityFeed from "../components/active/ActivityFeed";
 import "./Home.css";
 
 const Home = () => {

@@ -1,4 +1,4 @@
-import ArchiveTab from "../components/ArchiveTab";
+import ArchiveTab from "../components/archived/ArchiveTab";
 import { useEffect, useState } from "react";
 import "./Archive.css";
 
