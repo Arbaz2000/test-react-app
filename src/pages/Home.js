@@ -4,22 +4,22 @@ import "./Home.css";
 const Home = () => {
   const handleArchiveAll = async () => {
     try {
-      const response = await fetch('/api/calls/archive-all', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
+      const response = await fetch('https://aircall-api.onrender.com/activities');
+      const activities = await response.json();
+      const activeActivities = activities.filter(activity => !activity.is_archived);
       
-      if (!response.ok) {
-        throw new Error('Failed to archive all calls');
-      }
+      const promises = activeActivities.map((activity) =>
+        fetch(`https://aircall-api.onrender.com/activities/${activity.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ is_archived: true }),
+        }),
+      );
       
-      // Refresh the activity feed or update state as needed
+      await Promise.all(promises);
       window.location.reload();
     } catch (error) {
       console.error('Error archiving all calls:', error);
-      // Handle error (e.g., show error message to user)
     }
   };
 

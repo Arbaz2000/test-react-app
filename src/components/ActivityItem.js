@@ -2,7 +2,7 @@ import { FiArchive, FiPhoneCall, FiPhoneIncoming, FiPhoneOutgoing, FiPhoneMissed
 import { motion } from 'framer-motion';
 import './ActivityItem.css';
 
-const ActivityItem = ({ activity, onArchive }) => {
+const ActivityItem = ({ activity, onArchive, isArchiveView }) => {
   const getCallIcon = (type) => {
     switch (type.toLowerCase()) {
       case 'incoming':
@@ -14,6 +14,11 @@ const ActivityItem = ({ activity, onArchive }) => {
       default:
         return <FiPhoneCall className="call-type-icon" />;
     }
+  };
+
+  const handleArchiveClick = () => {
+    const newArchiveState = isArchiveView ? false : true;
+    onArchive(activity.id, newArchiveState);
   };
 
   return (
@@ -55,13 +60,13 @@ const ActivityItem = ({ activity, onArchive }) => {
       
       <motion.button
         className="archive-button"
-        onClick={() => onArchive(activity.id)}
+        onClick={handleArchiveClick}
         whileHover={{ 
           scale: 1.1,
           backgroundColor: '#f0f0f0' 
         }}
         whileTap={{ scale: 0.95 }}
-        title="Archive"
+        title={isArchiveView ? "Unarchive" : "Archive"}
       >
         <FiArchive size={20} />
       </motion.button>

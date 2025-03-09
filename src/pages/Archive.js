@@ -9,7 +9,6 @@ const Archive = () => {
     try {
       const response = await fetch('https://aircall-api.onrender.com/activities');
       const data = await response.json();
-      // Filter for archived activities only
       setActivities(data.filter(activity => activity.is_archived));
     } catch (error) {
       console.error("Error fetching activities:", error);
@@ -30,8 +29,7 @@ const Archive = () => {
         }),
       );
       await Promise.all(promises);
-      await fetchActivities(); // First fetch the updated data
-      window.location.reload(); // Then reload the page
+      window.location.reload();
     } catch (error) {
       console.error("Error unarchiving all:", error);
     }

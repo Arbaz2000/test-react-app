@@ -21,6 +21,7 @@ const ArchiveTab = () => {
             key={activity.id}
             activity={activity}
             onArchive={toggleArchive}
+            isArchiveView={true}
           />
         ))}
     </div>
