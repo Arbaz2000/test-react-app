@@ -1,6 +1,7 @@
 import useFetchActivities from "../hooks/useFetchActivities";
 import useUpdateActivity from "../hooks/useUpdateActivity";
 import ActivityItem from "./ActivityItem";
+import LoadingSpinner from "./LoadingSpinner";
 import { motion } from "framer-motion";
 import './ActivityFeed.css';
 
@@ -8,13 +9,7 @@ const ActivityFeed = () => {
   const { activities, setActivities, loading } = useFetchActivities();
   const { toggleArchive } = useUpdateActivity(setActivities);
 
-  console.log('Activities:', activities);
-
-  if (loading) return (
-    <div className="loading-container">
-      <p>Loading...</p>
-    </div>
-  );
+  if (loading) return <LoadingSpinner />;
 
   return (
     <motion.div 

@@ -6,11 +6,15 @@ const ActivityItem = ({ activity, onArchive, isArchiveView }) => {
   const getCallIcon = (type) => {
     switch (type.toLowerCase()) {
       case 'incoming':
+      case 'inbound':
         return <FiPhoneIncoming className="call-type-icon incoming" />;
       case 'outgoing':
+      case 'outbound':
         return <FiPhoneOutgoing className="call-type-icon outgoing" />;
       case 'missed':
         return <FiPhoneMissed className="call-type-icon missed" />;
+      case 'answered':
+        return <FiPhoneCall className="call-type-icon answered" />;
       default:
         return <FiPhoneCall className="call-type-icon" />;
     }
@@ -45,16 +49,18 @@ const ActivityItem = ({ activity, onArchive, isArchiveView }) => {
         </div>
         
         <div className="call-details">
-          {activity.duration && (
-            <div className="duration">
-              <strong>Duration: </strong>{activity.duration}
-            </div>
-          )}
-          {activity.timestamp && (
-            <div className="timestamp">
-              <strong>Time: </strong>{new Date(activity.timestamp).toLocaleString()}
-            </div>
-          )}
+          <div className="info-row">
+            {activity.duration !== undefined && (
+              <span className="duration">
+                <strong>Duration: </strong>{activity.duration}s
+              </span>
+            )}
+            {activity.created_at && (
+              <span className="timestamp">
+                <strong>Time: </strong>{new Date(activity.created_at).toLocaleString()}
+              </span>
+            )}
+          </div>
         </div>
       </div>
       

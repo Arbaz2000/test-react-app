@@ -1,16 +1,13 @@
 import useFetchActivities from "../hooks/useFetchActivities";
 import useUpdateActivity from "../hooks/useUpdateActivity";
 import ActivityItem from "./ActivityItem";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ArchiveTab = () => {
   const { activities, setActivities, loading } = useFetchActivities();
   const { toggleArchive } = useUpdateActivity(setActivities);
 
-  if (loading) return (
-    <div className="loading-container">
-      <p>Loading...</p>
-    </div>
-  );
+  if (loading) return <LoadingSpinner />;
 
   return (
     <div className="feed-container">

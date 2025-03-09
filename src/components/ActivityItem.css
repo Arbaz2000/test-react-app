@@ -42,6 +42,10 @@
   color: #F44336;
 }
 
+.call-type-icon.answered {
+  color: #28a745;
+}
+
 .call-participants {
   display: flex;
   align-items: center;
@@ -88,4 +92,10 @@
   text-align: center;
   color: #666;
   padding: 2rem;
+}
+
+.info-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 } 
